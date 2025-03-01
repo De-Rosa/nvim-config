@@ -22,6 +22,9 @@ return {
               require('luasnip.loaders.from_vscode').lazy_load()
             end,
           },
+          {
+            'evesdropper/luasnip-latex-snippets.nvim',
+          },
         },
       },
       'saadparwaiz1/cmp_luasnip',
