@@ -12,10 +12,6 @@ return {
   },
 
   {
-    'micangl/cmp-vimtex',
-  },
-
-  {
     'Civitasv/cmake-tools.nvim',
     opts = {},
   },
