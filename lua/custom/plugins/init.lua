@@ -10,4 +10,18 @@ return {
       vim.g.vimtex_view_method = 'skim'
     end,
   },
+
+  {
+    'micangl/cmp-vimtex',
+  },
+
+  {
+    'Civitasv/cmake-tools.nvim',
+    opts = {},
+  },
+
+  {
+    'OXY2DEV/markview.nvim',
+    lazy = false,
+  },
 }
