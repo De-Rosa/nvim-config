@@ -14,3 +14,5 @@ vim.opt.autoindent = true
 vim.opt.undofile = true
 vim.opt.undodir = vim.fn.expand("~/.vim/undodir")
 vim.opt.updatetime = 300
+
+vim.opt.clipboard = 'unnamedplus'
