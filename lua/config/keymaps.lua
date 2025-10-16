@@ -1,7 +1,5 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
-vim.keymap.set('n', '<leader>e', ':Ex<CR>')
+vim.keymap.set('n', '<leader>x', ':Ex<CR>')
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
