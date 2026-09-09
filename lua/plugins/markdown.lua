@@ -1,5 +1,5 @@
 return {
-  -- Render markdown beautifully in-buffer (headers, bullets, code blocks, etc.)
+  -- render in buffer
   {
     'MeanderingProgrammer/render-markdown.nvim',
     dependencies = {
@@ -71,63 +71,18 @@ return {
     },
   },
 
-  -- Live browser preview (opens in your default browser, auto-refreshes on save)
+  -- render using preview
   {
-    'iamcco/markdown-preview.nvim',
-    cmd = { 'MarkdownPreview', 'MarkdownPreviewStop', 'MarkdownPreviewToggle' },
-    ft = { 'markdown' },
-    build = 'cd app && npm install',
-    keys = {
-      { '<leader>mp', '<cmd>MarkdownPreviewToggle<cr>', desc = 'Markdown Preview (browser)' },
-    },
+    "selimacerbas/markdown-preview.nvim",
+    dependencies = { "selimacerbas/live-server.nvim" },
     config = function()
-      vim.g.mkdp_auto_close     = 1   -- close preview when buffer closes
-      vim.g.mkdp_refresh_slow   = 0   -- live refresh
-      vim.g.mkdp_browser        = ''  -- use system default browser
-      vim.g.mkdp_theme          = 'dark'
-      vim.g.mkdp_page_title     = '${name}'
+      require("markdown_preview").setup({
+        instance_mode = "takeover",  -- "takeover" (one tab) or "multi" (tab per instance)
+        port = 0,                    -- 0 = auto (8421 for takeover, OS-assigned for multi)
+        open_browser = true,
+        default_theme = "dark",      -- "dark" or "light"; initial preview theme
+        debounce_ms = 300,
+      })
     end,
-  },
-
-  -- Distraction-free writing mode (centres content, hides UI clutter)
-  {
-    'folke/zen-mode.nvim',
-    cmd = 'ZenMode',
-    keys = {
-      { '<leader>mz', '<cmd>ZenMode<cr>', desc = 'Zen Mode (focus writing)' },
-    },
-    opts = {
-      window = {
-        backdrop = 0.92,
-        width    = 90,
-        height   = 1,
-        options  = {
-          signcolumn    = 'no',
-          number        = false,
-          relativenumber = false,
-          cursorline    = false,
-          foldcolumn    = '0',
-        },
-      },
-      plugins = {
-        twilight  = { enabled = true }, -- dim inactive paragraphs
-        gitsigns  = { enabled = false },
-        tmux      = { enabled = false },
-      },
-    },
-  },
-
-  -- Dim everything except the current paragraph/block
-  {
-    'folke/twilight.nvim',
-    cmd = { 'Twilight', 'TwilightEnable', 'TwilightDisable' },
-    keys = {
-      { '<leader>mt', '<cmd>Twilight<cr>', desc = 'Twilight (dim inactive text)' },
-    },
-    opts = {
-      dimming = { alpha = 0.35 },
-      context = 12,
-      expand  = { 'function', 'method', 'table', 'if_statement' },
-    },
-  },
+  }
 }

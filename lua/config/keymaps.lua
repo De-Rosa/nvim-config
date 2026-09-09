@@ -1,5 +1,17 @@
-vim.keymap.set('n', '<leader>x', ':Ex<CR>')
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>mp', '<cmd>MarkdownPreview<CR>', { desc = 'Open Markdown preview' })
+
+vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Move to left window' })
+vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Move to lower window' })
+vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Move to upper window' })
+vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Move to right window' })
+vim.keymap.set('n', '<C-S-h>', '<cmd>vertical resize -2<CR>', { desc = 'Shrink window width' })
+vim.keymap.set('n', '<C-S-l>', '<cmd>vertical resize +2<CR>', { desc = 'Grow window width' })
+vim.keymap.set('n', '<leader>t', function()
+  vim.cmd('botright vertical 80split')
+  vim.cmd('terminal')
+  vim.cmd('startinsert')
+end, { desc = 'Open terminal on the right' })
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})

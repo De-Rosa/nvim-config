@@ -3,11 +3,11 @@ return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     config = function()
-      require('nvim-treesitter.configs').setup {
+      require('nvim-treesitter').setup {
         ensure_installed = {
           'bash', 'c', 'cpp', 'diff', 'html',
           'lua', 'luadoc', 'markdown', 'markdown_inline',
-          'query', 'vim', 'vimdoc', 'python'
+          'query', 'vim', 'vimdoc', 'python', 'mermaid'
         },
         auto_install = true,
         highlight = {
