@@ -21,3 +21,5 @@ vim.opt.undodir = vim.fn.expand("~/.vim/undodir")
 vim.opt.updatetime = 300
 
 vim.opt.clipboard = 'unnamedplus'
+
+vim.opt.cmdheight = 0

@@ -22,7 +22,7 @@ return {
       },
       window = {
         position = "left",
-        width = 32,
+        width = 40,
       },
     },
   }
