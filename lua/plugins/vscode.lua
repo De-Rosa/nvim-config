@@ -18,6 +18,7 @@ return {
         group_overrides = {
           CursorLine = { bg = '#2a2d2e' },
           LineNr = { fg = '#4b4b4b' },
+          EndOfBuffer = { fg = '#4b4b4b' },
           CursorLineNr = { fg = '#c6c6c6', bold = true },
           Search = { bg = '#613214' },
           IncSearch = { bg = '#9e6a03', fg = '#ffffff' },
